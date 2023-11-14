@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Drive Link Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        input {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px;
+            cursor: pointer;
+        }
+        #output {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Google Drive Link Converter</h2>
+    <label for="drivelink">Google Drive Link:</label>
+    <input type="text" id="drivelink" placeholder="Paste your Google Drive link here">
+    <br>
+    <button onclick="convertLink()">Convert</button>
+    <div id="output"></div>
+
+    <script>
+        function convertLink() {
+            var drivelink = document.getElementById('drivelink').value;
+            var outputDiv = document.getElementById('output');
+            drivelink = drivelink.split("/");
+
+            var directLink;
+            if (drivelink[3] == "file") {
+                directLink = "https://drive.google.com/uc?export=view&id=" + drivelink[5];
+            } else {
+                var linkSplit = drivelink[3].split("=");
+                directLink = "https://drive.google.com/uc?export=view&id=" + linkSplit[1];
+            }
+
+            outputDiv.innerHTML = "<p><strong>Direct Drive Link:</strong></p><p>" + directLink + "</p>";
+        }
+    </script>
+</body>
+</html>
