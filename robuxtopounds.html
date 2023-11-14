@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robux to Pounds Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        input {
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px;
+            cursor: pointer;
+        }
+        #output {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Robux to Pounds Converter</h2>
+    <label for="selection">Choose Conversion:</label>
+    <select id="selection">
+        <option value="A">Robux to Pounds</option>
+        <option value="B">Pounds to Robux</option>
+    </select>
+    <br>
+    <label for="amount">Enter Amount:</label>
+    <input type="number" id="amount" placeholder="Enter the amount to convert">
+    <br>
+    <button onclick="convertCurrency()">Convert</button>
+    <div id="output"></div>
+
+    <script>
+        function convertCurrency() {
+            var selection = document.getElementById('selection').value;
+            var amount = parseFloat(document.getElementById('amount').value);
+            var outputDiv = document.getElementById('output');
+            var result;
+
+            if (selection === "A") {
+                result = amount * 0.012475;
+                outputDiv.innerHTML = "<p><strong>Robux to Pounds:</strong></p><p>" + amount + " Robux = £" + result.toFixed(2) + "</p>";
+            } else if (selection === "B") {
+                result = amount / 0.012475;
+                outputDiv.innerHTML = "<p><strong>Pounds to Robux:</strong></p><p>£" + amount.toFixed(2) + " = " + result.toFixed(0) + " Robux</p>";
+            }
+        }
+    </script>
+</body>
+</html>
