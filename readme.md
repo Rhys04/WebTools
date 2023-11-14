@@ -1,1 +1,4 @@
-This simple web interface allows you to easily convert a google drive link to one that is usable to host images or files for a website or other location!
+This repository is full of useful tools with a simple web interface!
+
+/drivetodirect.html - Converts a normal google drive link to one that can be used on websites and other apps.
+/poundstorobux.html - Converts pounds to robux and robux to pounds based on the rate that 400 robux is equal to £4.99
